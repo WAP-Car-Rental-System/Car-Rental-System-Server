@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact name="careRent">
+    <output-path>$PROJECT_DIR$/out/artifacts/careRent</output-path>
+    <root id="root" />
+  </artifact>
+</component>

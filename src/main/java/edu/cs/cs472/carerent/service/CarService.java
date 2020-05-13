@@ -3,6 +3,7 @@ package edu.cs.cs472.carerent.service;
 import edu.cs.cs472.carerent.model.Car;
 import edu.cs.cs472.carerent.repository.CarRepository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class CarService {
@@ -35,5 +36,5 @@ public class CarService {
         return sb.toString();
     }
 
-    public void registerNewCar(Car car){this.carRepository.addNewCar(car);}
+    public void registerNewCar(Car car) {this.carRepository.addNewCar(car);}
 }

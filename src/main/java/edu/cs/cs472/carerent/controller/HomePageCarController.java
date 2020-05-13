@@ -95,7 +95,7 @@ public class HomePageCarController extends HttpServlet {
     }
 
     private void setAccessControlHeaders(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+        response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5502");
 //        response.setHeader("Access-Control-Allow-Origin", "http://localhost:5500");
         response.setHeader("Access-Control-Allow-Methods", "*");
         response.setHeader("Access-Control-Allow-Headers", "*");
