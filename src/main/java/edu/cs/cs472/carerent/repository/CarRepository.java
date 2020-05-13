@@ -20,4 +20,14 @@ public class CarRepository {
         carList.add(newCar);
         return newCar;
     }
+    public Car getCarBId(int id){
+        Car selectedCar=null;
+        for (Car c:carList) {
+            if(c.getCarId()==id){
+                selectedCar=c;
+            }
+
+        }
+        return selectedCar;
+    }
 }

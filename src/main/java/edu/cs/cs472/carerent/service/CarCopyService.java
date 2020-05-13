@@ -32,5 +32,7 @@ public class CarCopyService {
         return sb.toString();
     }
 
-    public void registerNewCarCopy(CarCopy carCopy){this.carCopyRepository.addNewCarCopy(carCopy);}
+    public void registerNewCarCopy(CarCopy carCopy){
+        this.carCopyRepository.addNewCarCopy(carCopy);
+    }
 }
