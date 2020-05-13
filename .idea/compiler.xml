@@ -9,8 +9,11 @@
         <module name="Car-Rental-System-Server" />
       </profile>
     </annotationProcessing>
+<<<<<<< HEAD
     <bytecodeTargetLevel>
       <module name="Car-Rental-System-Server" target="9" />
     </bytecodeTargetLevel>
+=======
+>>>>>>> 1ff9f0823cf6c1a1e1ca0bcf346691feb32f5156
   </component>
 </project>
