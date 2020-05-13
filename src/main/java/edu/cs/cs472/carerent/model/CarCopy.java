@@ -10,14 +10,14 @@ public class CarCopy {
     private boolean available;
     private String plateNumber;
     private Integer rentPrice;
-    private Car car;
+    private Integer carId;
 
-    public CarCopy(Integer quantity, boolean available, String plateNumber, Integer rentPrice, Car car) {
+    public CarCopy(Integer quantity, boolean available, String plateNumber, Integer rentPrice, Integer carId) {
         this.quantity = quantity;
         this.available = available;
         this.plateNumber = plateNumber;
         this.rentPrice = rentPrice;
-        this.car = car;
+        this.carId = carId;
     }
  public CarCopy(){this(0,false,null,0,null);}
 
@@ -45,9 +45,6 @@ public class CarCopy {
         return plateNumber;
     }
 
-    public Car getCar() {
-        return car;
-    }
 
     public void setPlateNumber(String plateNumber) {
         this.plateNumber = plateNumber;
@@ -61,8 +58,16 @@ public class CarCopy {
         this.rentPrice = rentPrice;
     }
 
-    public  Integer getCarCopyId() {
-        return CarCopy.class.hashCode();
+    public Integer getCarCopyId() {
+        return carCopyId;
+    }
+
+    public Integer getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Integer carId) {
+        this.carId = carId;
     }
 
     public String toString(){
@@ -70,6 +75,7 @@ public class CarCopy {
                 .add("quantity='" + quantity)
                 .add("available='" + available + "'")
                 .add("carProductionYear='" + plateNumber +"'")
+                .add("carId='" + carId +"'")
                 .add("rentPrice='" + rentPrice)
                 .toString();
     }

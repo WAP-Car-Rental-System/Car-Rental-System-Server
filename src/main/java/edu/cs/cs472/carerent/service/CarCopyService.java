@@ -10,6 +10,8 @@ public class CarCopyService {
 
     private CarCopyRepository carCopyRepository;
 
+    public CarCopyService(List<CarCopy> carCopyList){this.carCopyRepository = new CarCopyRepository(carCopyList);}
+
     public String getAllRegisteredCarCopyJSON() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
@@ -22,7 +24,7 @@ public class CarCopyService {
             sb.append(String.format("\"available\": \"%s\", \"plateNumber\": \"%s\",  ",
                     carCopy.isAvailable(), carCopy.getPlateNumber()));
             sb.append(String.format("\"rentPrice\": %d, ", carCopy.getRentPrice()));
-            sb.append(String.format("\"carId\": %d, ", carCopy.getCar().getCarId()));
+            sb.append(String.format("\"carId\": %d, ", carCopy.getCarId()));
             sb.append("}");
             if(++count != carCopies.size()) {
                 sb.append(", ");

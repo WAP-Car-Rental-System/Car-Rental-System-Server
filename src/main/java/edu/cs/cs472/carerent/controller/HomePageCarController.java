@@ -87,10 +87,10 @@ public class HomePageCarController extends HttpServlet {
                         "Red","Transmission3")
         );
         // End temp
-        if(servletContext.getAttribute("carList") == null) {
+        if(servletContext.getAttribute("carCopyList") == null) {
             List<Car> dataStore = new Vector<>();
             this.carService = new CarService(dataStore);
-            servletContext.setAttribute("carList", dataStore);
+            servletContext.setAttribute("carCopyList", dataStore);
         }
     }
 
