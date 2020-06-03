@@ -39,10 +39,10 @@ public class HomePageCarController extends HttpServlet {
             String strNewCarDataInJSON = stringBuffer.toString();
             System.out.println(strNewCarDataInJSON);
             Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, JSONUtils.getJsonLocalDateDeserializer()).create();
-            Car newCar = new Car();
+            //Car newCar = new Car();
             //newCar.setCarId(newCar.getClass().hashCode()+1);
-            newCar = gson.fromJson(strNewCarDataInJSON, newCar.getClass());
-            newCar.setCarId(newCar.getClass().hashCode()+1);
+           Car newCar = gson.fromJson(strNewCarDataInJSON, Car.class);
+            //newCar.setCarId(newCar.getClass().hashCode()+1);
             this.carService.registerNewCar(newCar);
             System.out.println("Added Car: "+ newCar);
         }

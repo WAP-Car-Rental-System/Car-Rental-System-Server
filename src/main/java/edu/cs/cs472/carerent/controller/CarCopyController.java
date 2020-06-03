@@ -5,9 +5,11 @@ import com.google.gson.GsonBuilder;
 import edu.cs.cs472.carerent.model.Car;
 import edu.cs.cs472.carerent.model.CarCopy;
 import edu.cs.cs472.carerent.service.CarCopyService;
+import edu.cs.cs472.carerent.service.CarService;
 import edu.cs.cs472.carerent.util.JSONUtils;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Vector;
 
 @WebServlet(name = "CarCopyController" , description = "Car Copy Controller Class",
             urlPatterns = {"/carCopy/new", "/carCopy/list"})
@@ -69,10 +73,24 @@ public class CarCopyController extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
+
+        ServletContext servletContext = config.getServletContext();
+
+        List<CarCopy> cars = List.of(
+                new CarCopy(123456780, true, "IW-2324", 1000, 1222),
+                new CarCopy(123456780, true, "IW-2324", 1000, 4532),
+                new CarCopy(123456780, true, "IW-2324", 1000, 4325)
+        );
+        // End temp
+        if(servletContext.getAttribute("carList") == null) {
+            List<CarCopy> dataStore = new Vector<>();
+            this.carCopyService = new CarCopyService(dataStore);
+            servletContext.setAttribute("carList", dataStore);
+        }
     }
 
     private void setAccessControlHeaders(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+        response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5502");
 //        response.setHeader("Access-Control-Allow-Origin", "http://localhost:5500");
         response.setHeader("Access-Control-Allow-Methods", "*");
         response.setHeader("Access-Control-Allow-Headers", "*");

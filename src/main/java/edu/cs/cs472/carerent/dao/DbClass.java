@@ -4,6 +4,8 @@ import edu.cs.cs472.carerent.model.Car;
 
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbClass {
 
@@ -62,6 +64,31 @@ public class DbClass {
 
     }
 
+    public List<Car> fetchCars() {
+        List<Car> cars = new ArrayList<>();
+        Connection conn = getConnection();
+        Statement myState = null;
+        try {
+            myState = conn.createStatement();
+            String sql = "select * from mycarrent.car";
+            ResultSet rs = myState.executeQuery(sql);
+            while (rs.next()){
+                Car newCar = new Car();
+                newCar.setCarId(rs.getInt("carid"));
+                newCar.setMileage(rs.getInt("mileage"));
+                newCar.setCarBrand(rs.getString("brand"));
+                newCar.setCarModel(rs.getString("model"));
+                newCar.setCarProductionYear(rs.getInt("production_year"));
+                newCar.setCarColor(rs.getString("color"));
+                newCar.setTransmission(rs.getString("transmission"));
+                cars.add(newCar);
+                //System.out.println(newCar.toString());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+   return cars;
+    }
 //    public static Connection myConnection() throws SQLException {
 //            //Connection conn = DriverManager.getConnection(url,user,pass);
 //            //Statement myState = conn.createStatement();

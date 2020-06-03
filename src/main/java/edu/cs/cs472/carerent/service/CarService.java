@@ -15,6 +15,7 @@ public class CarService {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         List<Car> cars = carRepository.getCarList();
+        System.out.println(cars.toString());
         int count = 0;
         for(Car car : cars) {
             sb.append("{");
@@ -31,6 +32,7 @@ public class CarService {
             if(++count != cars.size()) {
                 sb.append(", ");
             }
+         
         }
         sb.append("]");
         return sb.toString();
