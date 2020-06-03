@@ -25,7 +25,11 @@ public class CarRepository {
     }
     public Car getCarBId(int id){
         Car selectedCar=null;
+<<<<<<< HEAD
         for (Car c:getCarList()) {
+=======
+        for (Car c:carList) {
+>>>>>>> 8260399802235a74bc29d587d928d45a8c78bda9
             if(c.getCarId()==id){
                 selectedCar=c;
             }
